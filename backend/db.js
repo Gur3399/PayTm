@@ -4,7 +4,7 @@ mongoose.connect("mongodb+srv://gurjotsingh3399:eZsEVqQYYWbE1YNg@cluster0.0cqijv
 
 const userSchema = mongoose.schema({
     email:String,
-    password:String,
+    password:String, //hashing will do
     firstName:String,
     lastName : String
      
