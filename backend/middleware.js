@@ -10,6 +10,7 @@ const authMiddleware  = (req, res, next) =>{
             msg:"forbidden request"
         })
     }
+    
 
     const token = authHeader.split(' ')[1];
 
@@ -31,12 +32,10 @@ const authMiddleware  = (req, res, next) =>{
             msg:"forbidden request"
         })
     }
+};
 
 
     module.exports ={
         authMiddleware
     };
 
-
-
-}

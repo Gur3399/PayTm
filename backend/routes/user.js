@@ -46,7 +46,11 @@ router.post("/signup",  async (req, res)=>{
             msg:"Email already take/ incorrect inputs"
         })
     }
-
+    // creating account and adding random value of money
+    await Account.create({
+        userId,
+        balance: 1 + Math.random() * 10000
+    })
     
     const dbUser = await User.create(body);
     
