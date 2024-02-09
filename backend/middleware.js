@@ -1,4 +1,4 @@
-const {jwtSecret} = require('./config')
+const jwtSecret = require('./config')
 const jwt = require("jsonwebtoken");
 
 
@@ -13,6 +13,7 @@ const authMiddleware  = (req, res, next) =>{
     
 
     const token = authHeader.split(' ')[1];
+    console.log(token);
 
     try{
         const decode = jwt.verify(token, jwtSecret);
@@ -20,7 +21,8 @@ const authMiddleware  = (req, res, next) =>{
         if(decode.userId)
         {
             req.userId = decode.userId;
-            console.log(decode.userId);
+           
+            
         }
 
         
@@ -35,7 +37,5 @@ const authMiddleware  = (req, res, next) =>{
 };
 
 
-    module.exports ={
-        authMiddleware
-    };
+    module.exports =authMiddleware;
 

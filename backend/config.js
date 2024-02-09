@@ -1,3 +1,3 @@
 const jwtSecret = "mySecret";
 
-module.exports = {jwtSecret};
+module.exports = jwtSecret;

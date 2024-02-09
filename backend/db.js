@@ -2,15 +2,15 @@ const mongoose = require("mongoose");
 
 mongoose.connect("mongodb+srv://gurjotsingh3399:eZsEVqQYYWbE1YNg@cluster0.0cqijvz.mongodb.net/paytm");
 
-const userSchema = mongoose.schema({
-    email: String,
+const userSchema = mongoose.Schema({
+    username: String,
     password: String, //hashing will do
     firstName: String,
     lastName: String
 
 })
 
-const accountSchema = mongoose.schema({
+const accountSchema = mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
