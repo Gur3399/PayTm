@@ -120,21 +120,7 @@ router.get("/bulk", async (req,res)=>{
 })
 
 
-router.get("balance", authMiddleware, async (req,res)=>{
 
-    const accountBalance = await Account.findOne({
-        userId:req.userId
-    });
-
-    res.json({
-        balance :accountBalance.balance
-    })
-
-})
-
-router.post("transfer", async(req,res)=>{
-    
-})
 
 
 module.exports = router;
