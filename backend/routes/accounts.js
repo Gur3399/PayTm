@@ -16,18 +16,19 @@ router.get("/balance", authMiddleware, async (req,res)=>{
 
 })
 
-router.post("transfer",authMiddleware,  async(req,res)=>{
+router.post("/transfer",authMiddleware,  async(req,res)=>{
 
     //have to do mogoose transaction here , because  if there is an error we need to rollback all the changes 
 
-    const session = mongoose.startSession();
+    const session =  await mongoose.startSession();
+    
     session.startTransaction();
     //amount is money to send, TO is var for whom to send money
-    const { amount, to} = req.body;
+    const { to, amount} = req.body;
 
     //fetch the accounts within transaction
 
-    const account = await account.findOne({userId:req.userId}).session(session);
+    const account = await Account.findOne({userId:req.userId}).session(session);
 
     if(!account || account.balance < amount)
     {   await session.abortTransaction();

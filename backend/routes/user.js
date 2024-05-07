@@ -45,7 +45,7 @@ router.post("/signup",  async (req, res)=>{
     const existingUser = await User.findOne({
         username:body.username
     })
-    console.log("this is user var"+success + "agge" + body.userName, existingUser);
+    
      
     if(existingUser)
     {
@@ -62,6 +62,8 @@ router.post("/signup",  async (req, res)=>{
         userId,
         balance: 1 + Math.random() * 10000
     })
+
+ 
     
     
     

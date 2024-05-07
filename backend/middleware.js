@@ -11,10 +11,14 @@ const authMiddleware  = (req, res, next) =>{
         })
     }
     
+    
+
 
     const token = authHeader.split(' ')[1];
-    console.log(token);
 
+    const validation = jwt.decode(token);
+    console.log(validation)
+    
     try{
         const decode = jwt.verify(token, jwtSecret);
 
